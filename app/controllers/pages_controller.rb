@@ -5,5 +5,11 @@ class PagesController < ApplicationController
   def home
   end
 
+  def pro
+  end
+
+  def public
+  end
+
 
 end
