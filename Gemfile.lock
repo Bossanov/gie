@@ -234,28 +234,28 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
-  bootstrap (~> 4.0)
+  bootstrap
   byebug
   capybara (>= 2.15)
   devise
-  jbuilder (~> 2.7)
-  jquery-rails (~> 4.3, >= 4.3.1)
+  jbuilder
+  jquery-rails
   letter_opener
   listen (~> 3.2)
   mail_form
-  pg (>= 0.18, < 2.0)
-  puma (~> 4.1)
-  rails (~> 6.0.3, >= 6.0.3.2)
-  sass-rails (>= 6)
+  pg
+  puma
+  rails
+  sass-rails
   selenium-webdriver
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
-  turbolinks (~> 5)
+  turbolinks
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
-  webpacker (~> 4.0)
+  webpacker
 
 RUBY VERSION
    ruby 2.6.6p146
