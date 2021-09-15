@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cabinets</h1>
+
+<table>
+
+
+  <tbody>
+
+    <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+    <% @cabinets.each do |cabinet| %>
+      <tr>
+        <td><%= cabinet.name %></td>
+        <td><%= cabinet.address %></td>
+        <td><%= link_to 'Show', cabinet %></td>
+        <td><%= link_to 'Edit', edit_cabinet_path(cabinet) %></td>
+        <td><%= link_to 'Destroy', cabinet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cabinet', new_cabinet_path %>

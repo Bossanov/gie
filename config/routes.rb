@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cabinets
   devise_for :users
   root to: 'pages#home'
   get 'pages/pro'
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   get 'pages/nantes'
   get 'pages/paris'
   get 'pages/lille'
+  get 'pages/mentionslegales'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

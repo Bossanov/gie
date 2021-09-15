@@ -33,5 +33,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
+gem 'geocoder'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'figaro'
+gem 'dotenv-rails', groups: [:development, :test]
