@@ -12,8 +12,8 @@ class CabinetsController < ApplicationController
       {
         lat: cabinet.latitude,
         lng: cabinet.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { cabinet: cabinet }),
-        image_url: helpers.asset_url('../assets/logo.svg')
+        info_window: render_to_string(partial: "info_window", locals: { cabinet: cabinet })
+
       }
     end
   end
@@ -32,6 +32,7 @@ class CabinetsController < ApplicationController
         lat: cabinet.latitude,
         lng: cabinet.longitude,
         info_window: render_to_string(partial: "info_window", locals: { cabinet: cabinet })
+
       }
     end
 
@@ -92,6 +93,6 @@ class CabinetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cabinet_params
-      params.require(:cabinet).permit(:name, :address)
+      params.require(:cabinet).permit(:name, :address,:phone, :description, photos: [])
     end
 end

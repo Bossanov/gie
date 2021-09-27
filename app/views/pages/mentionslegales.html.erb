@@ -1,2 +1,6 @@
-<%= render 'shared/navbarpublicother'%>
+<%if current_user%>
+  <%= render 'shared/navbaradmin'%>
+<%else%>
+  <%= render'shared/navbarpublicother'%>
+<%end%>
 <%= render 'shared/footer'%>

@@ -1,20 +1,38 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
+<header class="masthead bg-primary text-white text-center" style="height: 1000px;">
+  <div class="container d-flex align-items-center flex-column">
+    <img class="masthead-avatar mb-5" class=img-responsive src="../assets/logo.svg" alt="..." />
+    <h1>Se connecter </h1>
+    <div class="text-center mt-4">
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"><h5>E-mail</h5></label>
+            <%= f.input :email,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
+                input_html: { autocomplete: "email" }, type: "name", class: "form-control", id: "exampleInputEmail1",aria_describedby: "emailHelp ", label:false, placeholder:"Écrire ici"  %>
+
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"><h5>Mot de passe</h5></label>
+            <%= f.input :password,
                 required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+                input_html: { autocomplete: "current-password" } , type:"address", class:"form-control", id:"exampleInputPassword1", label:false, placeholder:"Écrire ici" %>
+          </div>
+          <div class="mb-3">
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+          <button type="submit" class="btn btn-danger">Submit</button>
+        </form>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</header>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="../assets/jqBootstrapValidation.js"></script>
+<script src="../assets/contact_me.js"></script>
+<script src="assets/scripts.js"></script>

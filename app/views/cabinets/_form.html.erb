@@ -1,14 +1,32 @@
-
 <%= simple_form_for(@cabinet) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address %>
+<form>
+  <div class="mb-3">
+    <%= f.input :name ,class:'form-control', label:false, placeholder:'Nom du cabinet'%>
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="mb-3">
+
+    <%= f.input :address, id:"exampleInputPassword1" ,class:'form-control', label:false, placeholder:'Adresse du cabinet'%>
+
   </div>
+
+  <div class="mb-3">
+
+    <%= f.input :phone , id:"exampleInputPassword1",class:'form-control', label:false, placeholder:'Numéro de téléphone du cabinet'%>
+
+  </div>
+
+  <div class="mb-3">
+
+    <%= f.input :description, id:"exampleInputPassword1", class:'form-control' , :as => :text, input_html: {style: 'max-height:1500px;'}, required: true, class: "form-control form-control-last-child", label: false, placeholder:"Descrption du cabinet" %>
+
+  </div>
+
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+
+    <%= f.button :submit , class:'btn btn-secondary'%>
+</form>
 <% end %>

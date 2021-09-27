@@ -1,0 +1,29 @@
+<% if cab.photos.attached?%>
+                  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                    <% n = 1%>
+                    <% cab.photos.each do |photo| %>
+                      <% if n == 1%>
+                        <div class="carousel-item active">
+                          <%= cl_image_tag photo.key, size:"200x200", crop:"fill", class:"  d-block w-100", alt:"" %>
+                          <% n = n+1%>
+                        </div>
+                      <%else%>
+                        <div class="carousel-item ">
+                          <%= cl_image_tag photo.key, size:"200x200", crop:"fill", class:" d-block w-100", alt:"" %>
+                          <% n = n+1%>
+                        </div>
+                      <%end%>
+                    <%end%>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                <%else%>
+                  <img  src="https://res.cloudinary.com/dz83jh064/image/upload/v1631711846/P0D2394399G_j6qsx8.webp"  alt="" size="200*200" crop="fill">
+                <%end%>

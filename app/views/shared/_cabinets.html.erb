@@ -1,64 +1,27 @@
 <section class="page-section" id="contact">
-            <div class="container">
-                <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">NOS CABINETS</h2>
-                <!-- Icon Divider-->
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
+  <div class="container">
+    <section class="page-section bg-primary text-white mb-0" id="about">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <% @cabinets = Cabinet.all%>
+          <% @cabinets.each do |cab| %>
+            <div class="col">
+              <div class="card "  >
+                <img  src="https://res.cloudinary.com/dz83jh064/image/upload/v1631711846/P0D2394399G_j6qsx8.webp" class="card-img-top" alt="" size="200*200" crop="fill">
+                <div class="card-body" >
+                  <h5 class="card-title" style="color: black;"><%= cab.name.capitalize %></h5>
+                  <p class="card-text" style="color: black; height:100px;"><%= cab.address %></p>
+                  <a href="<%=pages_paris_path(cab)%>" class="btn btn-primary">Voir</a>
+                  <% if current_user%>
+                    <a href="<%= edit_cabinet_path(cab)%>" class="btn btn-primary">Modifier</a>
+                    <a href="../pages/paris" class="btn btn-primary" method=":delete, data: { confirm: 'Are you sure?' }">Effacer</a>
+                  <% end%>
                 </div>
-                <!-- Contact Section Form-->
-                <section class="page-section bg-primary text-white mb-0" id="about">
-            <div class="container">
-                <!-- About Section Heading-->
-
-                <!-- About Section Content-->
-                <div class="row">
-                    <div class="col-lg-6 ml-auto">
-                      <div class="card" >
-                        <img class="card-img-top" src="https://res.cloudinary.com/dz83jh064/image/upload/c_scale,h_600,w_800/v1621242781/image_q9fdgc.jpg" alt="Card image cap">
-                        <div class="card-body" >
-                          <h5 class="card-title" style="color: black;">Paris</h5>
-                          <p class="card-text" style="color: black;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="../pages/paris" class="btn btn-primary">Voir</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 ml-auto">
-                      <div class="card" >
-                        <img class="card-img-top" src="https://res.cloudinary.com/dz83jh064/image/upload/c_scale,h_600,w_800/v1621242841/image_xhlkfl.jpg" alt="Card image cap">
-                        <div class="card-body">
-                          <h5 class="card-title" style="color: black;">Lyon</h5>
-                          <p class="card-text" style="color: black;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="../pages/lyon" class="btn btn-primary">Voir</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 ml-auto">
-                      <div class="card" >
-                        <img class="card-img-top" src="https://res.cloudinary.com/dz83jh064/image/upload/c_scale,h_600,w_800/v1621242911/image_rm0j59.jpg" alt="Card image cap">
-                        <div class="card-body">
-                          <h5 class="card-title" style="color: black;">Nantes</h5>
-                          <p class="card-text" style="color: black;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="../pages/nantes" class="btn btn-primary">Voir</a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 ml-auto">
-                      <div class="card" >
-                        <img class="card-img-top" src="https://res.cloudinary.com/dz83jh064/image/upload/c_scale,h_600,w_800/v1621243000/image_ynjnjt.jpg" alt="Card image cap">
-                        <div class="card-body">
-                          <h5 class="card-title" style="color: black;">Lille</h5>
-                          <p class="card-text" style="color: black;">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <a href="../pages/lille" class="btn btn-primary">Voir</a>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-                <!-- About Section Button-->
-
+              </div>
             </div>
-        </section>
-            </div>
-        </section>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
