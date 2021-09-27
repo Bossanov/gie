@@ -7,7 +7,17 @@
           <% @cabinets.each do |cab| %>
             <div class="col">
               <div class="card "  >
-                <img  src="https://res.cloudinary.com/dz83jh064/image/upload/v1631711846/P0D2394399G_j6qsx8.webp" class="card-img-top" alt="" size="200*200" crop="fill">
+                <% if cab.photos.attached?%>
+                  <% n =1 %>
+                  <% cab.photos.each do |photo| %>
+                    <% if n ==1%>
+                      <%= cl_image_tag photo.key, height: 300, width: 200, crop: :fill ,class:"card-img-top", alt:"" %>
+                      <% n = n+1%>
+                    <%end%>
+                  <% end %>
+                <%else%>
+                <img  src="https://res.cloudinary.com/dz83jh064/image/upload/v1631711846/P0D2394399G_j6qsx8.webp" class="card-img-top" alt="" style="height:300px; width:295px;" crop="fill">
+                <%end%>
                 <div class="card-body" >
                   <h5 class="card-title" style="color: black;"><%= cab.name.capitalize %></h5>
                   <p class="card-text" style="color: black; height:100px;"><%= cab.address %></p>
