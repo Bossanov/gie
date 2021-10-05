@@ -51,14 +51,14 @@ class CabinetsController < ApplicationController
   def create
     @cabinet = Cabinet.new(cabinet_params)
 
-    respond_to do |format|
+
       if @cabinet.save
-        format.html { redirect_to @cabinet, notice: "Cabinet was successfully created." }
-        format.json { render :show, status: :created, location: @cabinet }
+        flash[:notice] = 'Votre profil a correctement été créé. Il sera validé par un admin, merci.'
+        redirect_to cabinet_path(@cabinet)
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @cabinet.errors, status: :unprocessable_entity }
-      end
+        flash[:notice] = 'Votre profil a correctement été créé. Il sera validé par un admin, merci.'
+        redirect_to new_cabinet_path
+
     end
   end
 
@@ -66,11 +66,11 @@ class CabinetsController < ApplicationController
   def update
     respond_to do |format|
       if @cabinet.update(cabinet_params)
-        format.html { redirect_to @cabinet, notice: "Cabinet was successfully updated." }
-        format.json { render :show, status: :ok, location: @cabinet }
+        format.html { redirect_to @cabinet, notice: "Les modifications ont été enregistrées dans la base de données" }
+        redirect_to cabinet_path(@cabinet)
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @cabinet.errors, status: :unprocessable_entity }
+        cabinet_path(@cabinet)
       end
     end
   end
@@ -79,8 +79,8 @@ class CabinetsController < ApplicationController
   def destroy
     @cabinet.destroy
     respond_to do |format|
-      format.html { redirect_to cabinets_url, notice: "Cabinet was successfully destroyed." }
-      format.json { head :no_content }
+      format.html { redirect_to cabinets_url, notice: "Le cabinet a été effacé de la base de données" }
+      redirect_to root_path
     end
   end
 
