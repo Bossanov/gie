@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :cabinets
   devise_for :users
+  resources :cabinets
   root to: 'pages#home'
   get 'pages/pro'
   get 'pages/public'
